@@ -1,0 +1,9 @@
+{
+ "n": 10020,
+ "seed": 0,
+ "threshold": 0.7,
+ "n_clusters": 4313,
+ "labels_sha256": "39d2d09ce0f262d4044154e7ec51d8b6c4f45276dcfade8bd86d35b72d0858cf",
+ "largest_cluster": 6,
+ "oracle_seconds": 322.3
+}
