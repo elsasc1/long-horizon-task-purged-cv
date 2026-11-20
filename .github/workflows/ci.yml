@@ -1,0 +1,20 @@
+name: task-sanity-check
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy==2.2.6 pandas==2.3.0 pytest==8.3.5
+      - name: Starter must fail, solution must pass
+        run: |
+          out=$(scripts/check_task.sh)
+          echo "$out"
+          echo "$out" | grep -q "^starter  : .*failed"
+          echo "$out" | grep -q "^solution : .*passed"
+          ! echo "$out" | grep -q "^solution : .*failed"
